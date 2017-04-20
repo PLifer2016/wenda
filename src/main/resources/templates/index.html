@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>问答网站</title>
+    <link rel="stylesheet" href="../CSS/reset.css">
+    <link rel="stylesheet" href="../CSS/layout.css">
+</head>
+<body>
+<div id="nav">
+    <ul class="classify">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">热点</a></li>
+        <li><a href="#">发现</a></li>
+        <li><a href="#">圆桌</a></li>
+        <li><a href="#">问题</a></li>
+    </ul>
+    <ul class="login">
+        <li><a href="/reglogin">注册</a></li>
+        <li><a href="/login/">登录</a></li>
+    </ul>
+</div>
+<div id="header">
+    <h1>这是问答网站的首页</h1>
+</div>
+<div id="main">
+    <div id="container">
+
+            #foreach($vo in $vos)
+        <div class="question">
+            <div class="pic">
+                <img src="$!{vo.user.headUrl}" title="用户头像">
+            </div>
+            <div class="author">
+                作者：$!{vo.user.name}
+            </div>
+
+            <div class="question-num">
+                <strong>question $foreach.count : $!{vo.question.title}</strong>
+            </div>
+
+            <div class="content">
+                $!{vo.question.content}<br>
+            </div>
+
+            <div class="id">
+                $!{vo.question.id}
+            </div>
+
+            <div class="create-date">
+                $!{vo.question.createdDate}
+            </div>
+            <div class="ueser-id">
+                $!{vo.question.userId}
+            </div>
+            <div class="commentCount">
+                $!{vo.question.commentCount}
+            </div>
+            <div class="clear"><div>
+                <hr>
+        </div>
+            #end
+
+    </div>
+</div>
+</body>
+</html>
